@@ -79,16 +79,20 @@ define('forum/topic/postTools', [
 		var postContainer = components.get('topic');
 
 		postContainer.on('click', '[component="post/quote"]', function () {
-			onQuoteClicked($(this), tid);
+			// onQuoteClicked($(this), tid);
+			console.log('Replies are disabled');
 		});
 
 		postContainer.on('click', '[component="post/reply"]', function () {
-			onReplyClicked($(this), tid);
+			// Override replies with messages
+			// onReplyClicked($(this), tid);
+			openChat($(this));
 		});
 
 		$('.topic').on('click', '[component="topic/reply"]', function (e) {
-			e.preventDefault();
-			onReplyClicked($(this), tid);
+			// e.preventDefault();
+			// onReplyClicked($(this), tid);
+			console.log('Replies are disabled');
 		});
 
 		$('.topic').on('click', '[component="topic/reply-as-topic"]', function () {
