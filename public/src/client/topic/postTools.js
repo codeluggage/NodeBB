@@ -92,16 +92,17 @@ define('forum/topic/postTools', [
 		$('.topic').on('click', '[component="topic/reply"]', function (e) {
 			// e.preventDefault();
 			// onReplyClicked($(this), tid);
-			console.log('Replies are disabled');
+			openChat($(this));
 		});
 
 		$('.topic').on('click', '[component="topic/reply-as-topic"]', function () {
-			translator.translate('[[topic:link_back, ' + ajaxify.data.titleRaw + ', ' + config.relative_path + '/topic/' + ajaxify.data.slug + ']]', function (body) {
-				$(window).trigger('action:composer.topic.new', {
-					cid: ajaxify.data.cid,
-					body: body,
-				});
-			});
+			// translator.translate('[[topic:link_back, ' + ajaxify.data.titleRaw + ', ' + config.relative_path + '/topic/' + ajaxify.data.slug + ']]', function (body) {
+			// 	$(window).trigger('action:composer.topic.new', {
+			// 		cid: ajaxify.data.cid,
+			// 		body: body,
+			// 	});
+			// });
+			openChat($(this));
 		});
 
 		postContainer.on('click', '[component="post/bookmark"]', function () {
